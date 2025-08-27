@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import { IProduct } from "../IProduct";
 import Header from "./Header";
-import ProductList from "./ProductList";
 import { Container, CssBaseline } from "@mui/material";
+import { Outlet } from "react-router-dom"; // ÖNEMLİ
 
 function App() {
   const [products, setProducts] = useState<IProduct[]>([]);
@@ -20,7 +20,7 @@ function App() {
     <CssBaseline></CssBaseline>
      <Header />
      <Container>
-         <ProductList products = {products} />
+        <Outlet/>
      </Container>
     </>
   )
