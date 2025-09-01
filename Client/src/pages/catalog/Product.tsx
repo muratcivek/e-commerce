@@ -1,11 +1,14 @@
 import { AddShoppingCart } from "@mui/icons-material";
 import { Button, Card, CardActions, CardContent, CardMedia, Typography } from "@mui/material";
 import SearchIcon from '@mui/icons-material/Search';
-import { IProduct } from "../IProduct";
+import { IProduct } from "../../IProduct";
+import { Link } from "react-router";
+
 
 
 interface Props {
   product: IProduct;
+  
 }
 
 
@@ -19,10 +22,8 @@ function Product({ product }: Props) {
         <Typography  variant="body2" color="secondary">{product.price}</Typography>
       </CardContent>
       <CardActions>
-        <Button variant="outlined" size="small" startIcon={<AddShoppingCart />} color="success">
-          Add to cart
-        </Button>
-        <Button variant="outlined" size="small" startIcon={<SearchIcon/>} color="primary">View</Button>
+        <Button variant="outlined" size="small" startIcon={<AddShoppingCart />} color="success">Add to cart</Button>
+        <Button component = {Link} to = {`/catalog/${product.id}`} variant="outlined" size="small" startIcon={<SearchIcon/>} color="primary">View</Button>
       </CardActions>
     </Card>
   );
